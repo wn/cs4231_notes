@@ -1,13 +1,15 @@
 /* 
  * Implementation of a counting semaphore using two mutexes.
+ * 
+ * Note: count is assumed to never go over n.
  */
 class CountingSemaphore {
-    int count;
-    Mutex semaphoreCount; // Allow only P() or V() to run, ensure that count is "atomic".
-    Mutex semaphoreBlocker; // Used to actually block threads if count is out of bound.
-    int n; 
+    private int count;
+    private Mutex semaphoreCount; // Allow only P() or V() to run, ensure that count is "atomic".
+    private Mutex semaphoreBlocker; // Used to actually block threads if count is out of bound.
+    private final int n; 
 
-    CountingSemaphore(int n) {
+    public CountingSemaphore(int n) {
         self.n = n;
         count = n;
         semaphoreCount = Mutex(1);
@@ -15,7 +17,7 @@ class CountingSemaphore {
     }
 
     // Decrease counter
-    void P() {
+    public void P() {
         semaphoreCount.P();
         if (count == 0) {
             semaphoreBlocker.P();
@@ -25,7 +27,7 @@ class CountingSemaphore {
     }
     
     // Increase counter
-    void V() {
+    public void V() {
         semaphoreCount.P();
         if (count == 0) {
             semaphoreBlocker.V();
