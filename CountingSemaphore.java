@@ -19,8 +19,6 @@ class CountingSemaphore {
         semaphoreCount.P();
         if (count == 0) {
             semaphoreBlocker.P();
-        } else if (count == n) {
-            semaphoreBlocker.V();
         }
         count--;
         semaphoreCount.V();
@@ -31,8 +29,6 @@ class CountingSemaphore {
         semaphoreCount.P();
         if (count == 0) {
             semaphoreBlocker.V();
-        } else if (count == n) {
-            semaphoreBlocker.P();
         }
         count++;
         semaphoreCount.V();
