@@ -50,7 +50,11 @@
 
 #### Protocol
 
-- Increment C[i] at each "local computation" and "send" event
-- When sending a message, all n vectors are attached to the message
-- At each "receive" event, let V be the principle vector of the sender. C = pairwise-max(C, V); C[i]++.
-  - Note that we use pairwise-max on all vector of the process sending the message, with the *principle vector* of the sender, and not pairwise-max of all elements in the two matrices.
+- For principle vector C on process i
+  - Increment C[i] at each "local computation" and "send" event
+  - When sending a message, all n vectors are attached to the message
+  - At each "receive" event, let V be the principle vector of the sender. C = pairwise-max(C, V); C[i]++.
+    - Note: pairwise-max is with the *principle vector* of the *sender* and *receiver* only.
+
+- For non-principle vector C on process i, suppose it correspond to process j:
+  - At each receive event, let V be the vector corresponding to process j as in the received message. C = pairwise-max(C, V)

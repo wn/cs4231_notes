@@ -1,3 +1,3 @@
-# Distributed systems algorithms
+# CS4231 - Parallel and Distributed Algorithms
 
-My implementation of distributed system algorithms in java. 
+Revision notes for CS4231.
