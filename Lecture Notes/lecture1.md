@@ -1,6 +1,6 @@
 # Lecture 1: Mutual Exclusion Problem
 
-## Definations 
+## Definitions
 
 - *Critical section*: Section of code that needs to be executed atomically.
 - Properties of *mutual exclusion*:

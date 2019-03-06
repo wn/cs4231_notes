@@ -1,6 +1,6 @@
 # Lecture 3: Consistency Condition
 
-## Definations
+## Definitions
 
 - *Shared abstract data type*
   - Can be accessed by multiple processes

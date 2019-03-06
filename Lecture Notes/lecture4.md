@@ -1,6 +1,6 @@
 # Lecture 4: Models & Clocks
 
-## Definations
+## Definitions
 
 - Process can perform three kinds of atomic actions/events
   - Local computation
