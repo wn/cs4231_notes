@@ -1,5 +1,7 @@
 # Lecture 2: Synchronization Primatives
 
+## Notes
+
 - Peterson's algorithm and Lamport's Bakery Algorithm results in busy waiting.
   - Wastes CPU cycles
   - **Need OS support**
@@ -19,17 +21,17 @@
 
 ## Monitors
 
-- Two queues
+- Two queues required
   - Queue of process waiting for monitor's lock, which is required to enter synchronized functions.
   - Queue of process waiting to be notified from a condition. Enters queue when `wait()` is called.
 - Two kind of monitors
-  - Hoare monitor
+  - *Hoare monitor*
     - One of the threads that was waiting on the condition continues execution.
-  - Java semantics
+  - *Java semantics*
     - The thread that makes the notify call continue its execution.
 - `synchronized`
   - Only enter monitor if no one is in.
   - Else, block.
   - When thread leaves the method, notify (or notifyAll, depending on semantics) waiting threads.
 - Nested monitors in Java
-  - Do not use nested `synchronized` code as when the inner `synchronized` code is blocked, the outer `synchronized` code may still be blocked. 
+  - Do not use nested `synchronized` code as when the inner `synchronized` code is blocked, the outer `synchronized` code may still be blocked.

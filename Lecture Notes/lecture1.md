@@ -2,12 +2,12 @@
 
 ## Definations 
 
-- Critical section: Section of code that needs to be executed atomically.
-- Properties of mutual exclusion:
+- *Critical section*: Section of code that needs to be executed atomically.
+- Properties of *mutual exclusion*:
   - Mutual exclusion: No more than one process in the critical section.
   - Progress: If one or more process wants to enter and if no one is in the critical section, then one of them can enter the critical section.
   - No starvation: If a process wants to enter, it eventually can always enter.
-  - Need to consider the worst-case schedule/
+  - Need to consider the worst-case schedule
 
 ## Software solutions
 
