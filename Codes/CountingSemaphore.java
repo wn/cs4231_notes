@@ -32,15 +32,11 @@ class CountingSemaphore {
     
     // Increase counter
     public void V() {
-        boolean toRelease = false;
         semaphoreCount.P();
         if (count < 0) {
-            toRelease = true;
-        }
-        count++;
-        if (toRelease) {
             semaphoreBlocker.V();
         }
+        count++;
         semaphoreCount.V();
     }
 }
