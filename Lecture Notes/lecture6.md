@@ -15,4 +15,9 @@
 
 - Piggyback all message
   - Works but overhead of piggybacking all messages is too large.
+
+### Matrix Algorithm
   
+### Birman-Schiper-Stephenson Protocol
+
+### Schiper-Eggli-Sandoz Algorithm
