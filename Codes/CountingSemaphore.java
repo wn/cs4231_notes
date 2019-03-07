@@ -34,7 +34,7 @@ class CountingSemaphore {
     public void V() {
         boolean toRelease = false;
         semaphoreCount.P();
-        if (count <= 0) {
+        if (count < 0) {
             toRelease = true;
         }
         count++;
