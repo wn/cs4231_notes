@@ -13,23 +13,27 @@ class CountingSemaphore {
         self.n = n;
         count = n;
         semaphoreCount = Mutex(1);
-        semaphoreBlocker = Mutex(1);
+        semaphoreBlocker = Mutex(0); // Should be initialised to 0.
     }
 
     // Decrease counter
     public void P() {
+        boolean cannotEnter = false;
         semaphoreCount.P();
-        if (count == 0) {
-            semaphoreBlocker.P();
+        if (count <= 0) {
+            cannotEnter = true;
         }
         count--;
         semaphoreCount.V();
+        if (cannotEnter) {
+            semaphoreBlocker.P();
+        }
     }
     
     // Increase counter
     public void V() {
         semaphoreCount.P();
-        if (count == 0) {
+        if (count < 0) {
             semaphoreBlocker.V();
         }
         count++;
